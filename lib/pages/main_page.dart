@@ -1,7 +1,11 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:hello_flutter/pages/matkul_page.dart';
 import 'package:hello_flutter/pages/profil_page.dart';
-import 'package:hello_flutter/pages/counter_page.dart';
+import 'package:hello_flutter/pages/tugas_page.dart';
+
+import 'home_page.dart';
+import 'pengumuman_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -28,10 +32,16 @@ class _MainPageState extends State<MainPage> {
           controller: _pageController,
           onPageChanged: (index) => setState(() => _currentIndex = index),
           children: [
-            Container(color: Colors.blue),
-            const CounterPage(),
-            Container(color: Colors.green),
-            Container(color: Colors.purple),
+            const HomePage(
+              npm: '',
+              email: '',
+              password: '',
+              tanggal: '',
+              nama: '',
+            ),
+            const TugasPage(),
+            const MatkulPage(),
+            const PengumumanPage(),
             const AccountPage(),
           ],
         ),
@@ -65,7 +75,7 @@ class _MainPageState extends State<MainPage> {
             textAlign: TextAlign.center,
           ),
           BottomNavyBarItem(
-            icon: const Icon(Icons.message),
+            icon: const Icon(Icons.notifications),
             title: const Text('Pengumuman'),
             activeColor: Colors.purple,
             textAlign: TextAlign.center,
